@@ -1,0 +1,17 @@
+
+name: deploy-client
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/feed/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd packages/feed && npm install
+      - run: npm run build
