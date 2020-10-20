@@ -14,10 +14,11 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm install
       - run: npm version patch
       - uses: EndBug/add-and-commit@v5

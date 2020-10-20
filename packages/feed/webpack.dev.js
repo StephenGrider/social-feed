@@ -3,6 +3,8 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const NAME = packageJson.name.replace(/@|\//g, '');
+
 const devConfig = {
   mode: 'development',
   output: {
@@ -13,7 +15,7 @@ const devConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'feed',
+      name: NAME,
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {

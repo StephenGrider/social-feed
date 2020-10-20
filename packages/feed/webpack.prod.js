@@ -4,7 +4,7 @@ const path = require('path');
 const packageJson = require('./package.json');
 const commonConfig = require('./webpack.common');
 
-const NAME = encodeURIComponent(packageJson.name);
+const NAME = packageJson.name.replace(/@|\//g, '');
 const VERSION = packageJson.version;
 
 const prodConfig = {

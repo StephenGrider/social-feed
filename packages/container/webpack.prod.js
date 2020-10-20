@@ -4,10 +4,13 @@ const path = require('path');
 const packageJson = require('./package.json');
 const commonConfig = require('./webpack.common');
 
+const NAME = packageJson.name.replace(/@|\//g, '');
+const DOMAIN = process.env.PRODUCTION_DOMAIN;
+
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageJson.name}/latest/`,
+    publicPath: `${DOMAIN}/${packageJson.name}/latest/`,
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
@@ -15,11 +18,7 @@ const prodConfig = {
       name: packageJson.name,
       filename: 'remoteEntry.js',
       remotes: {
-        '@npegrider/feed': `@npegrider/feed@${
-          process.env.PRODUCTION_DOMAIN
-        }/${encodeURLComponent('@npegrider/feed')}/${
-          packageJson.devDependencies['@npegrider/feed']
-        }/remoteEntry.js`,
+        '@npegrider/feed': `@npegrider/feed@${DOMAIN}/npegriderfeed/${packageJson.devDependencies['@npegrider/feed']}/remoteEntry.js`,
       },
       exposes: {},
       shared: packageJson.dependencies,
