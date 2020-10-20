@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
+const packageJson = require('./package.json');
 
 const devConfig = {
   mode: 'development',
@@ -15,8 +16,7 @@ const devConfig = {
       name: packageJson.name,
       filename: 'remoteEntry.js',
       remotes: {
-        '@npegrider/feed':
-          '@npegrider/feed@http://localhost:8081/remoteEntry.js',
+        '@npegrider/feed': 'npegriderfeed@http://localhost:8081/remoteEntry.js',
       },
       exposes: {},
       shared: packageJson.dependencies,

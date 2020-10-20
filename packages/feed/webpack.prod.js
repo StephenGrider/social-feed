@@ -4,18 +4,18 @@ const path = require('path');
 const packageJson = require('./package.json');
 const commonConfig = require('./webpack.common');
 
-const NAME = packageJson.name.replace(/@|\//g, '');
-const VERSION = packageJson.version;
+const packageName = packageJson.name;
+const packageVersion = packageJson.version;
 
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `${process.env.PRODUCTION_DOMAIN}/${NAME}/${VERSION}/`,
+    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageName}/${packageVersion}/`,
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: NAME,
+      name: packageName,
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {

@@ -2,8 +2,9 @@ const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const packageJson = require('./package.json');
 
-const NAME = packageJson.name.replace(/@|\//g, '');
+const packageName = packageJson.name;
 
 const devConfig = {
   mode: 'development',
@@ -15,7 +16,7 @@ const devConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: NAME,
+      name: packageName,
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
