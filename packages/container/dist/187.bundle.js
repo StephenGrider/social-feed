@@ -1,1 +1,0 @@
-(self.webpackChunkcontainer=self.webpackChunkcontainer||[]).push([[187],{187:(e,r,n)=>{"use strict";n.r(r),(0,n(412).render)(document.querySelector("#root"))}}]);
