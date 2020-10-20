@@ -25,7 +25,7 @@ jobs:
           message: 'Increment version'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run build
