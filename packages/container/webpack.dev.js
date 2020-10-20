@@ -15,7 +15,8 @@ const devConfig = {
       name: packageJson.name,
       filename: 'remoteEntry.js',
       remotes: {
-        feed: 'feed@http://localhost:8081/remoteEntry.js',
+        '@npegrider/feed':
+          '@npegrider/feed@http://localhost:8081/remoteEntry.js',
       },
       exposes: {},
       shared: packageJson.dependencies,

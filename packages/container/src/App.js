@@ -1,3 +1,3 @@
-import { render } from 'feed/FeedApp';
+import { render } from '@npegrider/feed/FeedApp';
 
 render(document.querySelector('#root'));
