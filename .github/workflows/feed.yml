@@ -1,4 +1,3 @@
-
 name: deploy-client
 
 on:
@@ -13,5 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd packages/feed && npm install
-      - run: npm run build
+      - run: cd packages/feed && npm install && npm run build
