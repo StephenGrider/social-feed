@@ -1,0 +1,103 @@
+{
+    "ETag": "E3G2FGTERUJR1I",
+    "DistributionConfig": {
+        "CallerReference": "1603220765803",
+        "Aliases": {
+            "Quantity": 2,
+            "Items": [
+                "sg-social-network.com",
+                "www.sg-social-network.com"
+            ]
+        },
+        "DefaultRootObject": "asdf.htmml",
+        "Origins": {
+            "Quantity": 1,
+            "Items": [
+                {
+                    "Id": "S3-sgrider-social-feed",
+                    "DomainName": "sgrider-social-feed.s3.amazonaws.com",
+                    "OriginPath": "",
+                    "CustomHeaders": {
+                        "Quantity": 0
+                    },
+                    "S3OriginConfig": {
+                        "OriginAccessIdentity": ""
+                    },
+                    "ConnectionAttempts": 3,
+                    "ConnectionTimeout": 10
+                }
+            ]
+        },
+        "OriginGroups": {
+            "Quantity": 0
+        },
+        "DefaultCacheBehavior": {
+            "TargetOriginId": "S3-sgrider-social-feed",
+            "TrustedSigners": {
+                "Enabled": false,
+                "Quantity": 0
+            },
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "AllowedMethods": {
+                "Quantity": 2,
+                "Items": [
+                    "HEAD",
+                    "GET"
+                ],
+                "CachedMethods": {
+                    "Quantity": 2,
+                    "Items": [
+                        "HEAD",
+                        "GET"
+                    ]
+                }
+            },
+            "SmoothStreaming": false,
+            "Compress": false,
+            "LambdaFunctionAssociations": {
+                "Quantity": 0
+            },
+            "FieldLevelEncryptionId": "",
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6"
+        },
+        "CacheBehaviors": {
+            "Quantity": 0
+        },
+        "CustomErrorResponses": {
+            "Quantity": 1,
+            "Items": [
+                {
+                    "ErrorCode": 403,
+                    "ResponsePagePath": "/container/latest/index.html",
+                    "ResponseCode": "200",
+                    "ErrorCachingMinTTL": 10
+                }
+            ]
+        },
+        "Comment": "",
+        "Logging": {
+            "Enabled": false,
+            "IncludeCookies": false,
+            "Bucket": "",
+            "Prefix": ""
+        },
+        "PriceClass": "PriceClass_All",
+        "Enabled": true,
+        "ViewerCertificate": {
+            "ACMCertificateArn": "arn:aws:acm:us-east-1:306476627547:certificate/d2e86301-7a7e-452b-9209-467e9847be8f",
+            "SSLSupportMethod": "sni-only",
+            "MinimumProtocolVersion": "TLSv1.2_2019",
+            "Certificate": "arn:aws:acm:us-east-1:306476627547:certificate/d2e86301-7a7e-452b-9209-467e9847be8f",
+            "CertificateSource": "acm"
+        },
+        "Restrictions": {
+            "GeoRestriction": {
+                "RestrictionType": "none",
+                "Quantity": 0
+            }
+        },
+        "WebACLId": "",
+        "HttpVersion": "http2",
+        "IsIPV6Enabled": true
+    }
+}

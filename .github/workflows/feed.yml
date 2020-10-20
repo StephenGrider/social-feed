@@ -18,6 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+      - run: npm version patch
+      - uses: EndBug/add-and-commit@v5
+        with:
+          - add: 'package.json'
+          - message: 'Increment version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm run build
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
@@ -26,4 +36,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/feed/latest
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/feed/$(npm run version --silent)
