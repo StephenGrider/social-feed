@@ -7,9 +7,15 @@ on:
     paths:
       - 'packages/feed/**'
 
+defaults:
+  run:
+    working-directory: packages/feed
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - run: cd packages/feed && npm install && npm run build
+      - run: npm install
+      - run: npm run build
