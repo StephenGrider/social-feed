@@ -7,7 +7,7 @@ const commonConfig = require('./webpack.common');
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `http://assets.localhost.com/${packageJson.name}/${packageJson.version}/`,
+    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageJson.name}/${packageJson.version}/`,
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
@@ -15,7 +15,7 @@ const prodConfig = {
       name: packageJson.name,
       filename: 'remoteEntry.js',
       remotes: {
-        feed: `feed@http://assets.localhost.com/@npegrider/feed/1.0.0/remoteEntry.js`,
+        feed: `feed@${process.env.PRODUCTION_DOMAIN}/feed/latest/remoteEntry.js`,
       },
       exposes: {},
       shared: packageJson.dependencies,
