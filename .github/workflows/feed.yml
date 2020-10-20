@@ -1,4 +1,4 @@
-name: deploy-client
+name: deploy-feed
 
 on:
   push:
@@ -27,7 +27,6 @@ jobs:
           message: 'Increment version'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm publish --access public
       - run: npm run build
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
@@ -37,3 +36,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/feed/$(npm run version --silent)
+      - run: npm publish --access public
