@@ -15,7 +15,11 @@ const prodConfig = {
       name: packageJson.name,
       filename: 'remoteEntry.js',
       remotes: {
-        feed: `feed@${process.env.PRODUCTION_DOMAIN}/feed/${packageJson.devDependencies['@npegrider/feed']}/remoteEntry.js`,
+        '@npegrider/feed': `@npegrider/feed@${
+          process.env.PRODUCTION_DOMAIN
+        }/${encodeURLComponent('@npegrider/feed')}/${
+          packageJson.devDependencies['@npegrider/feed']
+        }/remoteEntry.js`,
       },
       exposes: {},
       shared: packageJson.dependencies,
