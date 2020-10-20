@@ -21,8 +21,8 @@ jobs:
       - run: npm version patch
       - uses: EndBug/add-and-commit@v5
         with:
-          - add: './package.json'
-          - message: 'Increment version'
+          add: './package.json'
+          message: 'Increment version'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run publish
