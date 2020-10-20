@@ -7,7 +7,7 @@ const commonConfig = require('./webpack.common');
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageJson.name}/${packageJson.version}/`,
+    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageJson.name}/latest/`,
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
