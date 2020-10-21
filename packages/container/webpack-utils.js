@@ -1,4 +1,6 @@
-const { camelCase } = require('lodash');
+function normalizeName(name) {
+  return name.toLowerCase().replace(/[^a-z]/, '');
+}
 
 function buildProdPublicPath({ domain, name, version }) {
   return `${domain}/${name}/${version}/`;
@@ -6,7 +8,7 @@ function buildProdPublicPath({ domain, name, version }) {
 
 function buildProdRemote({ domain, fileName, name, version }) {
   const v = version.replace(/[^0-9a-z]/g, '');
-  const n = camelCase(name);
+  const n = normalizeName(name);
 
   return {
     [name]: `${n}@${domain}/${n}/${v}/${fileName}`,
@@ -14,7 +16,7 @@ function buildProdRemote({ domain, fileName, name, version }) {
 }
 
 function buildDevRemote({ domain, fileName, name }) {
-  const n = camelCase(name);
+  const n = normalizeName(name);
 
   return {
     [name]: `${n}@${domain}/${fileName}`,
@@ -23,7 +25,7 @@ function buildDevRemote({ domain, fileName, name }) {
 
 module.exports = {
   buildProdPublicPath,
-  camelCase,
+  normalizeName,
   buildProdRemote,
   buildDevRemote,
 };

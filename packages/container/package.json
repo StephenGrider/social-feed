@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "version": "echo $npm_package_version"
+    "version": "node -p \"require('./package.json').version.replace(/[^0-9a-z]/g, '')\"",
+    "name": "node -p \"require('./package.json).name.toLowerCase().replace(/[^a-z]/, '')\""
   },
   "keywords": [],
   "author": "",
