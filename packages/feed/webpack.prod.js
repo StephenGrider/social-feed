@@ -1,21 +1,27 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const path = require('path');
+const {
+  camelCase,
+  buildProdRemote,
+  buildProdPublicPath,
+} = require('./webpack-utils');
 const packageJson = require('./package.json');
 const commonConfig = require('./webpack.common');
 
-const packageName = packageJson.name;
-const packageVersion = packageJson.version;
+const domain = process.env.PRODUCTION_DOMAIN;
+const name = camelCase(packageJson.name);
+const version = packageJson.version;
 
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `${process.env.PRODUCTION_DOMAIN}/${packageName}/${packageVersion}/`,
+    publicPath: buildProdPublicPath({ domain, name, version }),
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: packageName,
+      name,
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {

@@ -1,24 +1,35 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const path = require('path');
+const {
+  camelCase,
+  buildProdRemote,
+  buildProdPublicPath,
+} = require('./webpack-utils');
 const packageJson = require('./package.json');
 const commonConfig = require('./webpack.common');
 
-const DOMAIN = process.env.PRODUCTION_DOMAIN;
+const domain = process.env.PRODUCTION_DOMAIN;
+const name = camelCase(packageJson.name);
 
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: `${DOMAIN}/${packageJson.name}/latest/`,
+    publicPath: buildProdPublicPath({ domain, name, version: 'latest' }),
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
+      name: name,
       filename: 'remoteEntry.js',
-      remotes: {
-        npegriderfeed: `npegriderfeed@${DOMAIN}/npegriderfeed/${packageJson.devDependencies['@npegrider/feed']}/remoteEntry.js`,
-      },
+      remotes: [
+        {
+          name: '@npegrider/feed',
+          version: packageJson.devDependencies['@npegrider/feed'],
+          domain,
+          fileName: 'remoteEntry.js',
+        },
+      ].map(buildProdRemote),
       exposes: {},
       shared: packageJson.dependencies,
     }),

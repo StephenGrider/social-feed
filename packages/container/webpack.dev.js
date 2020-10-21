@@ -1,4 +1,5 @@
 const { merge } = require('webpack-merge');
+const { camelCase, buildDevRemote } = require('./webpack-utils');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('./package.json');
@@ -13,11 +14,15 @@ const devConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: packageJson.name,
+      name: camelCase(packageJson.name),
       filename: 'remoteEntry.js',
-      remotes: {
-        '@npegrider/feed': 'npegriderfeed@http://localhost:8081/remoteEntry.js',
-      },
+      remotes: [
+        {
+          name: '@npegrider/feed',
+          domain: 'http://localhost:8081',
+          fileName: 'remoteEntry.js',
+        },
+      ].map(buildDevRemote),
       exposes: {},
       shared: packageJson.dependencies,
     }),

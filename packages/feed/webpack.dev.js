@@ -1,10 +1,11 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const commonConfig = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { camelCase } = require('./webpack-utils');
+const commonConfig = require('./webpack.common');
 const packageJson = require('./package.json');
 
-const packageName = packageJson.name;
+const name = camelCase(packageJson.name);
 
 const devConfig = {
   mode: 'development',
@@ -16,7 +17,7 @@ const devConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: packageName,
+      name,
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
