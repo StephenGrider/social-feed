@@ -1,7 +1,7 @@
 const { camelCase } = require('lodash');
 
 function buildProdPublicPath({ domain, name, version }) {
-  return `${domain}/${name}/${version}`;
+  return `${domain}/${name}/${version}/`;
 }
 
 function buildProdRemote({ domain, fileName, name, version }) {
