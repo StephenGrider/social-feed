@@ -3,7 +3,9 @@ function normalizeName(name) {
 }
 
 function buildProdPublicPath({ domain, name, version }) {
-  return `${domain}/${name}/${version}/`;
+  const v = version.replace(/[^0-9a-z]/g, '');
+
+  return `${domain}/${name}/${v}/`;
 }
 
 function buildProdRemote({ domain, fileName, name, version }) {
