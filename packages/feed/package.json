@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "PRODUCTION_DOMAIN=asdf webpack --config webpack.prod.js",
-    "version": "echo $npm_package_version"
+    "version": "node -p \"require('./package.json').version.replace(/[^0-9a-z]/g, '')\""
   },
   "keywords": [],
   "author": "",
