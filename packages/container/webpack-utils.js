@@ -1,5 +1,5 @@
 function normalizeName(name) {
-  return name.toLowerCase().replace(/[^a-z]/, '');
+  return name.toLowerCase().replace(/[^a-z]/g, '');
 }
 
 function buildProdPublicPath({ domain, name, version }) {
