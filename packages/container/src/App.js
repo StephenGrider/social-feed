@@ -1,4 +1,4 @@
 import { render } from '@npegrider/feed/FeedApp';
 
-console.log('hi2');
+console.log('hi3');
 render(document.querySelector('#root'));
