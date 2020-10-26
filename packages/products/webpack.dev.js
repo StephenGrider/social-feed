@@ -14,6 +14,9 @@ const devConfig = {
   },
   devServer: {
     port: 8081,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -21,7 +24,7 @@ const devConfig = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './FeedApp': './src/App',
+        './ProductsApp': './src/App',
       },
       shared: packageJson.dependencies,
     }),

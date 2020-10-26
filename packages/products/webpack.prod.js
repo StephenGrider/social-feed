@@ -11,32 +11,22 @@ const commonConfig = require('./webpack.common');
 
 const domain = process.env.PRODUCTION_DOMAIN;
 const name = normalizeName(packageJson.name);
+const version = packageJson.version;
 
 const prodConfig = {
   mode: 'production',
   output: {
-    publicPath: buildProdPublicPath({ domain, name, version: 'latest' }),
+    publicPath: buildProdPublicPath({ domain, name, version }),
     path: path.join(process.cwd(), 'dist'),
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: name,
+      name,
       filename: 'remoteEntry.js',
-      remotes: [
-        {
-          name: '@npegrider/cart',
-          version: packageJson.devDependencies['@npegrider/cart'],
-          domain,
-          fileName: 'remoteEntry.js',
-        },
-        {
-          name: '@npegrider/products',
-          version: packageJson.devDependencies['@npegrider/products'],
-          domain,
-          fileName: 'remoteEntry.js',
-        },
-      ].map(buildProdRemote),
-      exposes: {},
+      remotes: {},
+      exposes: {
+        './FeedApp': './src/App',
+      },
       shared: packageJson.dependencies,
     }),
   ],
