@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { History } from 'history';
 import { render } from '@npegrider/cart/CartApp';
 import Events from '../Events';
 
@@ -8,11 +9,11 @@ interface Props {
 }
 
 export default ({ history, events }: Props) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ref.current) {
-      render(ref.current, history, events);
+      render(ref.current, history);
     }
   }, []);
 
