@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Router history={history}>
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/">Products</Link>
         <Link to="/cart">Cart</Link>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
