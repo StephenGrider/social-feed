@@ -26,14 +26,14 @@ jobs:
           checkName: deploy-products
           ref: ${{ github.event.pull_request.head.sha }}
           timeoutSeconds: 120
-        - name: Wait for child packages to build
-          uses: fountainhead/action-wait-for-check@v1.0.0
-          id: wait-for-build
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            checkName: deploy-cart
-            ref: ${{ github.event.pull_request.head.sha }}
-            timeoutSeconds: 120
+      - name: Wait for child packages to build
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-build
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: deploy-cart
+          ref: ${{ github.event.pull_request.head.sha }}
+          timeoutSeconds: 120
 
       - run: npm install
       - run: npm run build
