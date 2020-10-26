@@ -1,7 +1,9 @@
 export default class Events {
-  _events = {};
+  _events: {
+    [key: string]: any;
+  } = {};
 
-  trigger(name, data) {
+  trigger(name: string, data: any) {
     const callbacks = this._events[name] || [];
 
     for (let callback of callbacks) {
@@ -9,12 +11,12 @@ export default class Events {
     }
   }
 
-  on(name, callback) {
+  on(name: string, callback: Function) {
     this._events[name] = [...(this._events[name] || []), callback];
   }
 
-  off(name, callback) {
-    this._events[name] = (this._events[name] || []).filter((cb) => {
+  off(name: string, callback: Function) {
+    this._events[name] = (this._events[name] || []).filter((cb: Function) => {
       return cb === callback;
     });
   }
