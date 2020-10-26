@@ -1,15 +1,15 @@
-name: deploy-feed
+name: deploy-cart
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'packages/feed/**'
+      - 'packages/cart/**'
 
 defaults:
   run:
-    working-directory: packages/feed
+    working-directory: packages/cart
 
 jobs:
   build:
