@@ -25,13 +25,13 @@ const prodConfig = {
       remotes: [
         {
           name: '@npegrider/cart',
-          version: packageJson.devDependencies['@npegrider/cart'],
+          version: packageJson.dependencies['@npegrider/cart'],
           domain,
           fileName: 'remoteEntry.js',
         },
         {
           name: '@npegrider/products',
-          version: packageJson.devDependencies['@npegrider/products'],
+          version: packageJson.dependencies['@npegrider/products'],
           domain,
           fileName: 'remoteEntry.js',
         },
