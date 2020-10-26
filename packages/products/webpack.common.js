@@ -4,7 +4,7 @@ module.exports = {
     filename: '[name].[contenthash].bundle.js',
   },
   resolve: {
-    extensions: ['.tsx', '.ts'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [

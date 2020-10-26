@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import { Router, Switch, Route, Link } from 'react-router-dom';
 import Events from './Events';
-// import ProductApp from './components/ProductApp';
-// import CartApp from './components/CartApp';
 
-const ProductApp = lazy(() => import('./components/ProductApp'));
+const ProductApp = lazy(() => import('./components/ProductsApp'));
 const CartApp = lazy(() => import('./components/CartApp'));
 
 const history = createBrowserHistory();

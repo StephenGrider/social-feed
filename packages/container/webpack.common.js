@@ -6,10 +6,15 @@ module.exports = {
     filename: '[name].[contenthash].bundle.js',
   },
   resolve: {
-    extensions: ['.jsx', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.m?js/,
         type: 'javascript/auto',
