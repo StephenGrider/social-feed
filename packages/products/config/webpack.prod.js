@@ -6,7 +6,7 @@ const {
   buildProdRemote,
   buildProdPublicPath,
 } = require('./webpack-utils');
-const packageJson = require('./package.json');
+const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common');
 
 const domain = process.env.PRODUCTION_DOMAIN;
@@ -25,7 +25,7 @@ const prodConfig = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './CartApp': './src/App',
+        './ProductsApp': './src/main',
       },
       shared: packageJson.dependencies,
     }),

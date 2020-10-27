@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { normalizeName } = require('./webpack-utils');
 const commonConfig = require('./webpack.common');
-const packageJson = require('./package.json');
+const packageJson = require('../package.json');
 
 const name = normalizeName(packageJson.name);
 
@@ -24,7 +24,7 @@ const devConfig = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './ProductsApp': './src/App',
+        './ProductsApp': './src/main',
       },
       shared: packageJson.dependencies,
     }),

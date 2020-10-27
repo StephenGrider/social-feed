@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { History } from 'history';
-import { render } from '@npegrider/products/ProductsApp';
+// @ts-ignore
+import { mount, unmount } from '@npegrider/products/ProductsApp';
 import Events from '../Events';
 
 interface Props {
@@ -12,9 +13,15 @@ export default ({ history, events }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (ref.current) {
-      render(ref.current, history);
+    let current = ref.current;
+
+    if (current) {
+      mount(ref.current, history);
     }
+
+    return () => {
+      unmount(current);
+    };
   }, []);
 
   return <div ref={ref} />;

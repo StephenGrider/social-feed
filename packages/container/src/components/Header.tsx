@@ -1,3 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default () => {};
+export default () => {
+  return (
+    <>
+      <Link to="/">Products</Link>
+      <Link to="/cart">Cart</Link>
+    </>
+  );
+};

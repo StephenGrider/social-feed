@@ -26,5 +26,6 @@ export function createHistory(rootHistory?: History) {
       rootHistory.push(location.pathname + location.search);
     }
   });
+
   return history;
 }

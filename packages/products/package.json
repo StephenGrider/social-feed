@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
     "version": "node -p \"require('./package.json').version.replace(/[^0-9a-z]/g, '')\"",
     "name": "node -p \"require('./package.json').name.toLowerCase().replace(/[^a-z]/g, '')\""
   },
@@ -13,13 +13,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/preset-typescript": "^7.12.1",
+    "@material-ui/core": "^4.11.0",
+    "axios": "^0.21.0",
+    "bulma": "^0.9.1",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.4"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",

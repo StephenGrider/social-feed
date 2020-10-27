@@ -1,8 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
-import { Router, Switch, Route, Link } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import Events from './Events';
+import Header from './components/Header';
 
 const ProductApp = lazy(() => import('./components/ProductsApp'));
 const CartApp = lazy(() => import('./components/CartApp'));
@@ -14,8 +15,8 @@ const App = () => {
   return (
     <Router history={history}>
       <div>
-        <Link to="/">Products</Link>
-        <Link to="/cart">Cart</Link>
+        <Header />
+        <hr />
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Route exact path="/cart">

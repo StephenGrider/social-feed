@@ -4,14 +4,13 @@ import { Router } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
 import { History } from 'history';
 import { createHistory } from './createHistory';
-import ProductList from './components/ProductList';
+import CartList from './components/CartList';
 
 const App = ({ history }: { history: History }) => {
   return (
     <Router history={history}>
       <div>
-        <h1>...</h1>
-        <ProductList products={[]} />
+        <CartList />
       </div>
     </Router>
   );
