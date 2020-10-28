@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { History, createBrowserHistory } from 'history';
+import { createBrowserHistory, History } from 'history';
 import App from './App';
 
 const mount = async (el: Element, rootHistory: History) => {

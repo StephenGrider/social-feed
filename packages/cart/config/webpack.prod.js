@@ -25,7 +25,7 @@ const prodConfig = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './CartApp': './src/App',
+        './CartApp': './src/main',
       },
       shared: packageJson.dependencies,
     }),
