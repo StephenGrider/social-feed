@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { History } from 'history';
-// @ts-ignore
 import { mount, unmount } from '@npegrider/cart/CartApp';
 import Events from '../Events';
 
@@ -16,11 +15,13 @@ export default ({ history, events }: Props) => {
     let current = ref.current;
 
     if (current) {
-      mount(ref.current, history);
+      mount(current, history);
     }
 
     return () => {
-      unmount(current);
+      if (current) {
+        unmount(current);
+      }
     };
   }, []);
 

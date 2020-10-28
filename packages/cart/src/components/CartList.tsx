@@ -1,26 +1,16 @@
 import React, { useEffect, useState } from 'react';
-
-import api from '../api';
-import { Cart } from './Cart';
-import { Product } from './Product';
+import { Link } from 'react-router-dom';
+import { getCartAndProducts, Cart, Product } from '../api';
 
 export default () => {
   const [cart, setCart] = useState<Cart | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    api
-      .get('/cart')
-      .then(({ data: cart }) => {
-        setCart(cart);
-        const ids = Object.keys(cart)
-          .map((id) => `id=${id}`)
-          .join('&');
-        return api.get(`/products?${ids}`);
-      })
-      .then(({ data: products }) => {
-        setProducts(products);
-      });
+    getCartAndProducts().then(({ cart, products }) => {
+      setCart(cart);
+      setProducts(products);
+    });
   }, []);
 
   if (!cart) {
@@ -38,6 +28,7 @@ export default () => {
           );
         })}
       </ul>
+      <Link to="/cart/finalize">Finalize</Link>
     </div>
   );
 };

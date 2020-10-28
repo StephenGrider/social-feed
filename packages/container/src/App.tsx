@@ -15,11 +15,11 @@ const App = () => {
   return (
     <Router history={history}>
       <div>
-        <Header />
+        <Header events={events} />
         <hr />
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/cart">
+            <Route path="/cart">
               <CartApp history={history} events={events} />
             </Route>
             <Route path="/">

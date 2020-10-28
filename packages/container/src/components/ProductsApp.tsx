@@ -16,11 +16,13 @@ export default ({ history, events }: Props) => {
     let current = ref.current;
 
     if (current) {
-      mount(ref.current, history);
+      mount(current, history);
     }
 
     return () => {
-      unmount(current);
+      if (current) {
+        unmount(current);
+      }
     };
   }, []);
 
