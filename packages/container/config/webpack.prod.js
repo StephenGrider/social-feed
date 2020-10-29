@@ -35,6 +35,12 @@ const prodConfig = {
           domain,
           fileName: 'remoteEntry.js',
         },
+        {
+          name: '@npegrider/dashboard',
+          version: packageJson.dependencies['@npegrider/dashboard'],
+          domain,
+          fileName: 'remoteEntry.js',
+        },
       ].map(buildProdRemote),
       exposes: {},
       shared: packageJson.dependencies,
