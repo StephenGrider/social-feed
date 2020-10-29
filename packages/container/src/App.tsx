@@ -33,7 +33,7 @@ const App = () => {
               <CartApp onSignIn={onSignIn} history={history} />
             </Route>
             <Route path="/dashboard">
-              <DashboardApp history={history} events={events} />
+              <DashboardApp />
             </Route>
             <Route path="/">
               <ProductApp history={history} events={events} />

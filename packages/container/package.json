@@ -35,12 +35,16 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@npegrider/cart": "1.0.4",
-    "@npegrider/products": "1.0.5",
-    "@npegrider/dashboard": "1.0.1",
+    "@npegrider/dashboard": "^1.0.2",
     "history": "^4.9.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "ts-loader": "^8.0.7"
+  },
+  "childApps": {
+    "@npegrider/cart": "1.0.4",
+    "@npegrider/products": "1.0.5",
+    "@npegrider/dashboard": "1.0.1"
   }
 }

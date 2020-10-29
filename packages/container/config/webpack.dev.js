@@ -23,17 +23,14 @@ const devConfig = {
         {
           name: '@npegrider/products',
           domain: 'http://localhost:8081',
-          fileName: 'remoteEntry.js',
         },
         {
           name: '@npegrider/cart',
           domain: 'http://localhost:8082',
-          fileName: 'remoteEntry.js',
         },
         {
           name: '@npegrider/dashboard',
           domain: 'http://localhost:8083',
-          fileName: 'remoteEntry.js',
         },
       ].map(buildDevRemote),
       exposes: {},

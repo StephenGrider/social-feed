@@ -16,6 +16,7 @@ const version = packageJson.version;
 const prodConfig = {
   mode: 'production',
   output: {
+    filename: '[name].[contenthash].bundle.js',
     publicPath: buildProdPublicPath({ domain, name, version }),
     path: path.join(process.cwd(), 'dist'),
   },

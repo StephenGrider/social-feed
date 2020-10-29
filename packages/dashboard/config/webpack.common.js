@@ -31,11 +31,10 @@ module.exports = {
         use: ['vue-style-loader', 'style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(ts|js)$/,
+        test: /\.(ts)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue$/] },
       },
     ],
   },

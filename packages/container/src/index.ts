@@ -1,1 +1,3 @@
 import('./App');
+
+export default {};

@@ -333,7 +333,7 @@ export default {
     };
   },
   methods: {
-    formatCurrency(value) {
+    formatCurrency(value: any) {
       return value.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',

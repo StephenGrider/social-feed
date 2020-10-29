@@ -25,21 +25,18 @@ const prodConfig = {
       remotes: [
         {
           name: '@npegrider/cart',
-          version: packageJson.dependencies['@npegrider/cart'],
+          version: packageJson.childApps['@npegrider/cart'],
           domain,
-          fileName: 'remoteEntry.js',
         },
         {
           name: '@npegrider/products',
-          version: packageJson.dependencies['@npegrider/products'],
+          version: packageJson.childApps['@npegrider/products'],
           domain,
-          fileName: 'remoteEntry.js',
         },
         {
           name: '@npegrider/dashboard',
-          version: packageJson.dependencies['@npegrider/dashboard'],
+          version: packageJson.childApps['@npegrider/dashboard'],
           domain,
-          fileName: 'remoteEntry.js',
         },
       ].map(buildProdRemote),
       exposes: {},
