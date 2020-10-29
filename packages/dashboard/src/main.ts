@@ -1,13 +1,14 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 
-const mount = (el: Element) => {
+const mount = (el: Element): any => {
   const app = createApp(App);
   app.mount(el);
+
   return app;
 };
 
-const unmount = (el: Element, app: any) => {
+const unmount = (el: Element, app: any): void => {
   app.unmount();
 };
 
