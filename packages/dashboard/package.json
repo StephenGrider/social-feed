@@ -1,6 +1,6 @@
 {
   "name": "@npegrider/dashboard",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "types": "./dist/main.d.ts",
   "scripts": {
