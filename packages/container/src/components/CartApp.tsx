@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { History } from 'history';
+// @ts-ignore
 import { mount, unmount } from '@npegrider/cart/CartApp';
 
 interface Props {

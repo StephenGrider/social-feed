@@ -1,6 +1,6 @@
 {
   "name": "@npegrider/products",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "types": "./dist/main.d.ts",
   "scripts": {

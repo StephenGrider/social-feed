@@ -34,7 +34,7 @@ const devConfig = {
         },
       ].map(buildDevRemote),
       exposes: {},
-      shared: packageJson.dependencies,
+      // shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
 };

@@ -29,7 +29,7 @@ const devConfig = {
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
-        './': './src/main',
+        './DashboardApp': './src/main',
       },
       shared: packageJson.dependencies,
     }),

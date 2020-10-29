@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+// @ts-ignore
 import { mount, unmount } from '@npegrider/dashboard/DashboardApp';
 
 export default () => {
