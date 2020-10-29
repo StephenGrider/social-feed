@@ -2,7 +2,7 @@
   "name": "@npegrider/dashboard",
   "version": "1.0.3",
   "description": "",
-  "main": "index.js",
+  "types": "./dist/main.d.ts",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
