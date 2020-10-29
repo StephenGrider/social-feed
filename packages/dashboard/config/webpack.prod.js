@@ -7,7 +7,7 @@ const {
   buildProdPublicPath,
 } = require('./webpack-utils');
 const packageJson = require('../package.json');
-const commonConfig = require('../webpack.common');
+const commonConfig = require('./webpack.common');
 
 const domain = process.env.PRODUCTION_DOMAIN;
 const name = normalizeName(packageJson.name);
