@@ -43,8 +43,8 @@
     "ts-loader": "^8.0.7"
   },
   "childApps": {
-    "@npegrider/cart": "1.0.4",
-    "@npegrider/products": "1.0.5",
-    "@npegrider/dashboard": "1.0.1"
+    "@npegrider/cart": "latest",
+    "@npegrider/products": "latest",
+    "@npegrider/dashboard": "latest"
   }
 }
