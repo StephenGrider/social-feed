@@ -1,21 +1,22 @@
 import React, { useRef, useEffect } from 'react';
 import { History } from 'history';
 import { mount, unmount } from '@npegrider/cart/CartApp';
-import Events from '../Events';
 
 interface Props {
   history: History;
-  events: Events;
+  onSignIn: () => void;
 }
 
-export default ({ history, events }: Props) => {
+export default ({ history, onSignIn }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let current = ref.current;
 
     if (current) {
-      mount(current, history);
+      mount(current, history, {
+        onSignIn,
+      });
     }
 
     return () => {

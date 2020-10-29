@@ -1,10 +1,8 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -24,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
+    justifyContent: 'space-between',
   },
   link: {
     margin: theme.spacing(1, 1.5),
@@ -58,81 +54,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
-    ],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-    ],
-    buttonText: 'Get started',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
-    ],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-];
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one',
-    ],
-  },
-  {
-    title: 'Resources',
-    description: [
-      'Resource',
-      'Resource name',
-      'Another resource',
-      'Final resource',
-    ],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
-
-export default function Pricing() {
+export default function Header({
+  signedIn,
+  onSignOut,
+}: {
+  signedIn?: boolean;
+  onSignOut?: () => void;
+}) {
   const classes = useStyles();
+
+  const onClick = (event: React.MouseEvent) => {
+    if (signedIn) {
+      if (onSignOut) {
+        onSignOut();
+      }
+    }
+  };
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <AppBar
         position="static"
         color="default"
@@ -144,7 +84,6 @@ export default function Pricing() {
             variant="h6"
             color="inherit"
             noWrap
-            className={classes.toolbarTitle}
             component={RouterLink}
             to="/"
           >
@@ -155,9 +94,10 @@ export default function Pricing() {
             variant="outlined"
             className={classes.link}
             component={RouterLink}
-            to="/auth/signin"
+            to={signedIn ? '/' : '/auth/signin'}
+            onClick={onClick}
           >
-            Login
+            {signedIn ? 'Logout' : 'Login'}
           </Button>
         </Toolbar>
       </AppBar>

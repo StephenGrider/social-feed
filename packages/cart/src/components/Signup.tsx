@@ -24,6 +24,11 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+    a: {
+      textDecoration: 'none',
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -35,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -43,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp({ onSignIn }: { onSignIn?: () => void }) {
   const classes = useStyles();
 
   return (
@@ -56,7 +61,11 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={classes.form}
+          noValidate
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -117,6 +126,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={onSignIn}
           >
             Sign Up
           </Button>

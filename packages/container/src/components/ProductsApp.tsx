@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { History } from 'history';
-// @ts-ignore
 import { mount, unmount } from '@npegrider/products/ProductsApp';
 import Events from '../Events';
 

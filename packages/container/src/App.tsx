@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,15 +15,22 @@ const history = createBrowserHistory();
 const events = new Events();
 
 const App = () => {
+  const [signedIn, setSignedIn] = useState(false);
+
+  const onSignIn = () => {
+    setSignedIn(true);
+    history.push('/dashboard');
+  };
+
   return (
     <Router history={history}>
       <CssBaseline />
       <div>
-        <Header />
+        <Header signedIn={signedIn} onSignOut={() => setSignedIn(false)} />
         <Suspense fallback={<Progress />}>
           <Switch>
             <Route path="/auth">
-              <CartApp history={history} events={events} />
+              <CartApp onSignIn={onSignIn} history={history} />
             </Route>
             <Route path="/dashboard">
               <DashboardApp history={history} events={events} />

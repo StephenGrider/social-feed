@@ -27,6 +27,11 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+    a: {
+      textDecoration: 'none',
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -46,12 +51,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn({ onSignIn }: { onSignIn?: () => void }) {
   const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -59,7 +63,11 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={classes.form}
+          noValidate
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -92,6 +100,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={onSignIn}
           >
             Sign In
           </Button>

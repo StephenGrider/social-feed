@@ -4,6 +4,7 @@ import App from './App.vue';
 const mount = (el: Element) => {
   const app = createApp(App);
   app.mount(el);
+  return app;
 };
 
 const unmount = (el: Element, app: any) => {
