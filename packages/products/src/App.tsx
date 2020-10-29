@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { History } from 'history';
 
-import ProductList from './components/ProductList';
-import ProductShow from './components/ProductShow';
+import Landing from './components/Landing';
+import Pricing from './components/Pricing';
 
 export default ({ history }: { history: History }) => {
   return (
     <div className="products-app">
       <Router history={history}>
         <Switch>
-          <Route exact path="/products/:id" component={ProductShow} />
-          <Route path="/" component={ProductList} />
+          <Route exact path="/pricing" component={Pricing} />
+          <Route path="/" component={Landing} />
         </Switch>
       </Router>
     </div>

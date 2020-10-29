@@ -1,19 +1,19 @@
 import React from 'react';
 import { Router, Switch, Route, Link } from 'react-router-dom';
 import { History } from 'history';
-import CartList from './components/CartList';
-import CartFinalize from './components/CartFinalize';
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 
 const App = ({ history }: { history: History }) => {
   return (
     <Router history={history}>
       <div>
         <Switch>
-          <Route path="/cart/finalize">
-            <CartFinalize />
+          <Route path="/auth/signin">
+            <Signin />
           </Route>
-          <Route path="/cart">
-            <CartList />
+          <Route path="/auth/signup">
+            <Signup />
           </Route>
         </Switch>
       </div>

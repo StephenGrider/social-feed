@@ -14,6 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "@babel/preset-typescript": "^7.12.1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
