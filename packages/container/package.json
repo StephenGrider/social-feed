@@ -31,8 +31,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@npegrider/cart": "1.0.3",
-    "@npegrider/products": "1.0.4",
+    "@npegrider/cart": "1.0.4",
+    "@npegrider/products": "1.0.5",
     "@npegrider/dashboard": "1.0.1",
     "@types/history": "^4.7.8",
     "@types/react": "^16.9.53",
